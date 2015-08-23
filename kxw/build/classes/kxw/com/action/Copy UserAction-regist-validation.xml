@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC " -//Apache Struts//XWork Validator 1.0.3//EN"
+"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<!-- 注册服务端校验 -->
+<validators>
+	<validator type="requiredstring" short-circuit="true">
+		<param name="fieldName">email</param>
+		<message>必须输入Email！</message>
+	</validator>
+	<validator type="email" short-circuit="true">
+		<param name="fieldName">email</param>
+		<message>Email的格式不对，应输入这样的格式：abc@126.com！</message>
+	</validator>
+	<validator type="stringlength" short-circuit="true">
+		<param name="fieldName">email</param>
+		<param name="maxLength">30</param>
+		<message>Email的长度不能超过30个字符！</message>
+	</validator>
+	<validator type="requiredstring">
+		<param name="fieldName">name</param>
+		<message>必须输入姓名！</message>
+	</validator>
+
+</validators>

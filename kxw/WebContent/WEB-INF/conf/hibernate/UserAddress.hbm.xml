@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-12-12 11:14:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="kxw.com.enity.UserAddress" table="KXW_USERADDRESS">
+        <id name="id" type="string">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="province" type="int">
+            <column name="PROVINCE" />
+        </property>
+        <property name="city" type="int">
+            <column name="CITY" />
+        </property>
+        <property name="local" type="int">
+            <column name="LOCAL" />
+        </property>
+         <many-to-one name="user" class="kxw.com.enity.User" column="userid" unique="true"></many-to-one>
+    </class>
+</hibernate-mapping>

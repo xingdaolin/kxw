@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC " -//Apache Struts//XWork Validator 1.0.3//EN"
+"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<!-- 服务端登录校验 -->
+<validators>
+<!-- short-circuit短路校验，只要有一个没通过校验就返或此错误，不要返货所有错误信息 -->
+<field name="email">
+	<field-validator type="requiredstring" short-circuit="true">
+	<message>必须输入Email！</message>
+	</field-validator>
+	<field-validator type="email" short-circuit="true">
+	<message>Email的格式不正确，应输入这样的格式：abc@126.com！</message>
+	</field-validator>
+</field>
+<field name="password">
+	<field-validator type="requiredstring" short-circuit="true">
+	<message>必须输入密码！</message>
+	</field-validator>
+</field>
+<field name="validateCode">
+	<field-validator type="requiredstring" short-circuit="true">
+	<message>必须输入验证码！</message>
+	</field-validator>
+</field>
+
+</validators>

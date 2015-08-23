@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <package name="kxw.com.action" extends="struts-default,json-default">
+		<!--spring管理action的方式，class对应spring配置文件中bean 的id -->
+		<!-- 注册action -->
+        <action name="register" class="userAction"  method="regist">
+            <result name="result2" type="stream">
+            <!-- 指定文件下载类型 -->
+			<param name="contentType">text/html</param>
+			<!-- 指定getResponse的输出结果为inputStream -->
+			<param name="inputName">response</param>
+            </result>
+        </action>
+        <!-- 获取身份状态的action -->
+		<action name="status" class="userAction" method="getList">
+		<result type="json">
+		<param name="root">statusResponse</param>
+		</result>
+		</action>
+		<!-- 登录用的action -->
+		<action name="login" class="userAction" method="login">
+			<!-- 因为用ajax提交的参数，所以成功后也不会跳转到页面，在js中实现 -->
+			<result name="success" type="stream">
+					<!-- 指定文件下载类型 -->
+			<param name="contentType">text/html</param>
+			<!-- 指定getResponse的输出结果为inputStream -->
+			<param name="inputName">response</param>
+			</result>
+			<result name="error"  type="stream">
+			<!-- 指定文件下载类型 -->
+			<param name="contentType">text/html</param>
+			<!-- 指定getResponse的输出结果为inputStream -->
+			<param name="inputName">response</param>
+			</result>
+			<!-- 跳到主页面 -->
+			<result name="main">/mainWeb/main.jsp</result>
+		</action>
+		<action name="loginOut" class="userAction" method="loginOut"></action>
+        <!-- Add actions here -->
+    </package>
+</struts>
